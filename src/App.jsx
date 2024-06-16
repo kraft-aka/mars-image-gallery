@@ -1,9 +1,9 @@
-import "./App.css";
+import LandingPage from "./pages/LandingPage";
 
 function App() {
   return (
     <>
-      <h1>Mars Image Gallery</h1>
+      <LandingPage />
     </>
   );
 }
