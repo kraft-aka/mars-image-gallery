@@ -1,12 +1,13 @@
 import React from "react";
 import fetchImages from "../../api/fetchImages";
 import { useQuery } from "@tanstack/react-query";
+import styles from './GalleryPage.module.css';
 
 const GalleryPage = () => {
   const imagesQuery = useQuery({
     queryKey: ["images"],
     queryFn: fetchImages,
-    
+
   });
 
   if (imagesQuery.isLoading) return <h2>Loading...</h2>;
@@ -15,7 +16,7 @@ const GalleryPage = () => {
 
   //console.log(imagesQuery.data?.photos);
   return (
-    <div>
+    <div className={styles["gallery-container"]}>
       {imagesQuery.data?.photos.map((image) => (
         <img key={image.id} src={image?.img_src} />
       ))}
