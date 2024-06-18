@@ -4,6 +4,25 @@
   margin-right: 1rem;
   margin-bottom: 2rem;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(450px,1fr));
+  /* display: flex;
+  width: inherit;
+  flex-wrap: wrap; */
   gap: 1rem;
+}
+
+.gallery-item {
+  flex: 1 1 400px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.gallery-item img {
+  display: block;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
 }

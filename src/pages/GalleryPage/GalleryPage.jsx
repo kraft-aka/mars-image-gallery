@@ -20,7 +20,7 @@ const GalleryPage = () => {
       <Navbar />
       <div className={styles["gallery-container"]}>
         {imagesQuery.data?.photos.map((image) => (
-          <img key={image.id} src={image?.img_src} />
+          <img key={image.id} src={image?.img_src} className={styles["gallery-item"]}/>
         ))}
       </div>
     </>
