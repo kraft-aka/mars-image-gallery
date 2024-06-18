@@ -1,18 +1,11 @@
 .gallery-container {
+  margin: auto;
   margin-top: 6rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
   margin-bottom: 2rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(450px,1fr));
-  /* display: flex;
-  width: inherit;
-  flex-wrap: wrap; */
-  gap: 1rem;
+  width: 80%;
 }
 
 .gallery-item {
-  flex: 1 1 400px;
   width: 100%;
   overflow: hidden;
   border-radius: 1rem;
