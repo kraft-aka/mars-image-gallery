@@ -24,6 +24,7 @@
 
 .title {
   font-size: 5rem;
+  text-align: center;
   margin: 0.5rem;
   color: #eed8d8;
   -webkit-text-stroke: 1px rgb(72, 57, 57);
