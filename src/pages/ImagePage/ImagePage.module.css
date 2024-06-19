@@ -1,0 +1,85 @@
+.image-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  width: inherit;
+  height: 100vh;
+  outline: 1px solid ;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-section {
+  width: 50vw;
+  height: auto;
+  padding: 0.2rem;
+  justify-self: end;
+  align-self: center;
+  /* outline: 1px solid; */
+}
+
+.image {
+  width:80%;
+  height: auto;
+  border-radius: 0.2rem;
+  filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.25));
+}
+
+.description-section {
+  width: 50vw;
+  height: auto;
+  margin-left: 2rem;
+  place-self: center;
+}
+
+.description-header {
+  letter-spacing: 20px;
+  margin-bottom: 3rem;
+}
+
+.description-header h1 {
+  font-size: 2rem;
+}
+
+.description-data {
+  line-height: 2;
+  margin-left: 1rem;
+  display: flex;
+  width: auto;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.description-data span {
+  font-weight: 700;
+  margin-left: 1rem;
+}
+
+/* Buttons */
+.image-cta {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.image-btn {
+  padding: 1rem 2rem;
+  cursor: pointer;
+  border-radius: 2.5rem;
+  border: none;
+  background-color: #2f31ab87;
+  color: #fff;
+  font-weight: 700;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+}
+
+
+.image-btn:hover {
+  outline: 5px solid #ccc;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}

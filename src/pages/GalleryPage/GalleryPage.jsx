@@ -16,20 +16,22 @@ const GalleryPage = () => {
 
   if (imagesQuery.isError) return <h2>Error occured</h2>;
 
-  //console.log(imagesQuery.data?.photos);
+  //console.log(imagesQuery.data);
   return (
     <>
       <Navbar />
       <div className={styles["gallery-container"]}>
-        <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1100:4 }}>
+        <ResponsiveMasonry
+          columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1100: 4 }}
+        >
           <Masonry columnsCount={4} gutter="2rem">
             {imagesQuery.data?.photos.map((image) => (
               <Link to={`/imagePage/${image.id}`}>
-              <img
-                key={image.id}
-                src={image?.img_src}
-                className={styles["gallery-item"]}
-              />
+                <img
+                  key={image.id}
+                  src={image?.img_src}
+                  className={styles["gallery-item"]}
+                />
               </Link>
             ))}
           </Masonry>
