@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import fetchImages from "../../api/fetchImages";
 import { useQuery } from "@tanstack/react-query";
 import styles from "./GalleryPage.module.css";
@@ -23,11 +24,13 @@ const GalleryPage = () => {
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3, 1100:4 }}>
           <Masonry columnsCount={4} gutter="2rem">
             {imagesQuery.data?.photos.map((image) => (
+              <Link to={`/imagePage/${image.id}`}>
               <img
                 key={image.id}
                 src={image?.img_src}
                 className={styles["gallery-item"]}
               />
+              </Link>
             ))}
           </Masonry>
         </ResponsiveMasonry>
