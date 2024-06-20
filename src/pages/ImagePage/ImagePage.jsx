@@ -17,16 +17,40 @@ const ImagePage = () => {
 
   const imageData = imageQuery?.data?.photos.find((el) => el.id == id);
 
+  const imgSrc = imageData?.img_src;
+
   console.log(imageData);
   //console.log(id)
+
+  const downloadImage = async (src, id, forceDownload = false) => {
+    if (!forceDownload) {
+      const link = document.createElement("a");
+      link.href = src;
+      link.download = "image" + "/" + id;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    const imageBlob = await fetch(imgSrc, { mode: 'no-cors' })
+      .then((response) => response.arrayBuffer())
+      .then((buffer) => new Blob([buffer], { type: "image/png" }))
+      .catch((err) => console.err("Error:", err));
+
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(imageBlob);
+    link.download = "image" + "/" + id;
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  //TODO: -> FIX THIS DOWNLOADIMAGE FUNCTION
+
   return (
     <main className={styles["image-container"]}>
       <section className={styles["image-section"]}>
-        <img
-          src={imageData?.img_src}
-          alt="Image of Mars"
-          className={styles["image"]}
-        />
+        <img src={imgSrc} alt="Image of Mars" className={styles["image"]} />
       </section>
       <section className={styles["description-section"]}>
         <header className={styles["description-header"]}>
@@ -58,7 +82,12 @@ const ImagePage = () => {
           <li className="description-data--item">{imageData?.rover?.status}</li>
         </ul>
         <div className={styles["image-cta"]}>
-          <button className={styles["image-btn"]}>Save</button>
+          <button
+            onClick={() => downloadImage(imgSrc, imageData?.id)}
+            className={styles["image-btn"]}
+          >
+            Save
+          </button>
           <button onClick={() => navigate(-1)} className={styles["image-btn"]}>
             Back
           </button>
