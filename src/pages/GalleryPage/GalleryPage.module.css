@@ -11,6 +11,7 @@
   border-radius: 1rem;
   cursor: pointer;
   border: none;
+  transition: transform, box-shadow, border .4s, .6s ease-in-out;
 }
 
 .gallery-item img {
@@ -18,4 +19,10 @@
   height: auto;
   width: 100%;
   object-fit: cover;
+}
+
+.gallery-item:hover {
+  box-shadow: 5px 10px 10px 5px rgba(0, 0, 0, 0.25);
+  transform: scale(1.05);
+  border: 5px solid 	#818589;
 }
