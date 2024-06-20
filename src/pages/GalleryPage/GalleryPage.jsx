@@ -26,9 +26,8 @@ const GalleryPage = () => {
         >
           <Masonry columnsCount={4} gutter="2rem">
             {imagesQuery.data?.photos.map((image) => (
-              <Link to={`/imagePage/${image.id}`}>
+              <Link to={`/imagePage/${image.id}`} key={image.id}>
                 <img
-                  key={image.id}
                   src={image?.img_src}
                   className={styles["gallery-item"]}
                 />
