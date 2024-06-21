@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
+import { Circles } from "react-loader-spinner";
 import fetchImages from "../../api/fetchImages";
 import styles from "./ImagePage.module.css";
 
@@ -12,7 +13,17 @@ const ImagePage = () => {
     queryFn: fetchImages,
   });
 
-  if (imageQuery.isLoading) return <h1>Loading...</h1>;
+  if (imageQuery.isLoading)
+    return (
+      <Circles
+        height="80"
+        width="80"
+        color="#818589"
+        ariaLabel="circles-loading"
+        wrapperStyle={{ position: "relative", top: "48vh", left: "48vw" }}
+        visible={true}
+      />
+    );
   if (imageQuery.isError) return <h1>Error occured</h1>;
 
   const imageData = imageQuery?.data?.photos.find((el) => el.id == id);
@@ -32,7 +43,7 @@ const ImagePage = () => {
       document.body.removeChild(link);
     }
 
-    const imageBlob = await fetch(imgSrc, { mode: 'no-cors' })
+    const imageBlob = await fetch(imgSrc, { mode: "no-cors" })
       .then((response) => response.arrayBuffer())
       .then((buffer) => new Blob([buffer], { type: "image/png" }))
       .catch((err) => console.err("Error:", err));
