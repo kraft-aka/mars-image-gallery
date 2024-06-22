@@ -17,6 +17,7 @@ const Navbar = ({ nextPage, prevPage }) => {
         <li className={styles['navbar-item']}> <button onClick={() => navigate(-1)} >Go Back</button> </li>
         <li className={styles['navbar-item']}> <button onClick={scrollToTop} >To the Top</button> </li>
         <li className={styles['navbar-item']}> <button onClick={nextPage} >Next Page</button> </li>
+        <li className={styles['navbar-item']}> <button onClick={prevPage} >Prev Page</button> </li>
       </ul>
     </nav>
   )
