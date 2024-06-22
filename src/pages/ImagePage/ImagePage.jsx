@@ -5,6 +5,7 @@ import { Circles } from "react-loader-spinner";
 import fetchImages from "../../api/fetchImages";
 import styles from "./ImagePage.module.css";
 
+
 const ImagePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const ImagePage = () => {
 
   const imgSrc = imageData?.img_src;
 
-  console.log(imageData);
+  console.log(imageQuery);
   //console.log(id)
 
   const downloadImage = async (src, id, forceDownload = false) => {

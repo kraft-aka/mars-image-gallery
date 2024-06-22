@@ -2,7 +2,7 @@ import React from 'react'
 import styles from './Navbar.module.css'
 import { useNavigate, Link } from 'react-router-dom'
 
-const Navbar = () => {
+const Navbar = ({ nextPage, prevPage }) => {
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Navbar = () => {
         <li className={styles['navbar-item']}> <Link>About</Link> </li>
         <li className={styles['navbar-item']}> <button onClick={() => navigate(-1)} >Go Back</button> </li>
         <li className={styles['navbar-item']}> <button onClick={scrollToTop} >To the Top</button> </li>
-        <li className={styles['navbar-item']}> <button onClick={() => navigate(-1)} >Next Page</button> </li>
+        <li className={styles['navbar-item']}> <button onClick={nextPage} >Next Page</button> </li>
       </ul>
     </nav>
   )
